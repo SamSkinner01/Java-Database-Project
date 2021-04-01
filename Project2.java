@@ -31,6 +31,18 @@ public class Project2 {
         return isValid;
     } 
     
+    //makeValidChoice is made by sam
+    public static String makeValidChoice(String choice){
+        Scanner obj = new Scanner(System.in);        
+        while(isValidChoice(choice) == false){
+            System.out.println("Please enter a valid choice: ");
+            choice = obj.nextLine();
+        }
+        System.out.println("\n");
+        
+        return choice;
+    }
+    
   
     public static void main(String[] args) {
         
@@ -53,46 +65,34 @@ public class Project2 {
                 case "1":
                     
                     
+                    //Calls menu again and make sures the newly entered choice is still a valid choice.
                     menu();
                     choice = userInput.nextLine();
-                    //Checks to make sure choice is a valid input.
-                    while(isValidChoice(choice) == false){
-                        System.out.println("Please enter a valid choice: ");
-                        choice = userInput.nextLine();
-                    }   System.out.println("\n");
+                    choice = makeValidChoice(choice);
                     break;
                 case "2":
                     
                     
+                    //Calls menu again and make sures the newly entered choice is still a valid choice.
                     menu();
                     choice = userInput.nextLine();
-                    //Checks to make sure choice is a valid input.
-                    while(isValidChoice(choice) == false){
-                        System.out.println("Please enter a valid choice: ");
-                        choice = userInput.nextLine();
-                    }   System.out.println("\n");
+                    choice = makeValidChoice(choice);
                     break;
                 case "3":
                     
                     
+                    //Calls menu again and make sures the newly entered choice is still a valid choice.
                     menu();
                     choice = userInput.nextLine();
-                    //Checks to make sure choice is a valid input.
-                    while(isValidChoice(choice) == false){
-                        System.out.println("Please enter a valid choice: ");
-                        choice = userInput.nextLine();
-                    }   System.out.println("\n");
+                    choice = makeValidChoice(choice);
                     break;
                 case "4":
                     
                     
+                    //Calls menu again and make sures the newly entered choice is still a valid choice.
                     menu();
                     choice = userInput.nextLine();
-                    //Checks to make sure choice is a valid input.
-                    while(isValidChoice(choice) == false){
-                        System.out.println("Please enter a valid choice: ");
-                        choice = userInput.nextLine();
-                    }   System.out.println("\n");
+                    choice = makeValidChoice(choice);
                     break;
                 case "5":
                     System.out.println("Exiting the program.");
