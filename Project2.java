@@ -52,11 +52,7 @@ public class Project2 {
         String choice = userInput.nextLine();
         
         //Checks to make sure choice is a valid input.
-        while(isValidChoice(choice) == false){
-            System.out.println("Please enter a valid choice: ");
-            choice = userInput.nextLine();
-        }
-        System.out.println("\n");
+        choice = makeValidChoice(choice);
         
         
         //Menu -- Sam
