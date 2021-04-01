@@ -5,12 +5,16 @@
  */
 package project2;
 import java.util.Scanner;
+import java.sql.*;
+
 /**
  *
  * @author Sam
  */
-public class Project2 {
-
+public class Project2{     
+        
+   
+    
     //Menu built by sam
     public static void menu (){
         System.out.println("1. Enter the instructor ID and I will provide you with the name of the instructor, affiliated department and the location of that department.");
@@ -44,7 +48,19 @@ public class Project2 {
     }
     
   
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        
+        //Connection to JDBC
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        System.out.println("Driver loaded");
+        
+        //Connect to database :: Last is password
+        Connection  con = DriverManager.getConnection("jdbc:mysql://localhost/", "root", "password");
+        System.out.println("Database connected\n");
+        
+        
+        
+        
         
         //Get user choice for the menu 
         Scanner userInput = new Scanner(System.in);
@@ -98,5 +114,4 @@ public class Project2 {
             }
         }
     }
-    
 }
