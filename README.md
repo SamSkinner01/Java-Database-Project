@@ -1,1 +1,6 @@
-# Something will probably happen with this, hopefully we can figure out java
+# Done
+-Menu has been made an is fully working.
+-Prompt 5 is fully working
+
+# To-Do
+-Prompts 1-4.
