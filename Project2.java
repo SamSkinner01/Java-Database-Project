@@ -49,10 +49,11 @@ public class Project2{
     
     //Will read two text files into db
     public static void readFilesIntoDB(Statement s) throws SQLException{
+        //Creates the databases and adds the tables. 
         s.executeUpdate("drop database if exists University");
         s.executeUpdate("create database University");
         s.executeUpdate("use University");
-        s.executeUpdate("create table deptartment(dept_name varchar(20) PRIMARY KEY,building varchar(15),budget numeric(12,2));"); //rewrite query in workbench
+        s.executeUpdate("create table deptartment(dept_name varchar(20) PRIMARY KEY,building varchar(15),budget numeric(12,2));"); 
         s.executeUpdate("create table instructor(id int PRIMARY KEY,name varchar(30),dept_name varchar(30),foreign key(dept_name) references deptartment(dept_name));");
         
         //Read data from text files and insert into database
