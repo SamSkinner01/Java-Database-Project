@@ -47,6 +47,26 @@ public class Project2{
         return choice;
     }
     
+    //Will read two text files into db
+    public static void readFilesIntoDB(Statement s) throws SQLException{
+        s.executeUpdate("drop database if exists University");
+        s.executeUpdate("create database University");
+        s.executeUpdate("use University");
+        s.executeUpdate("create table deptartment(dept_name varchar(20) PRIMARY KEY,building varchar(15),budget numeric(12,2));"); //rewrite query in workbench
+        s.executeUpdate("create table instructor(id int PRIMARY KEY,name varchar(30),dept_name varchar(30),foreign key(dept_name) references deptartment(dept_name));");
+        
+        //Read data from text files and insert into database
+    }
+    
+    //Write query inside function to enter into database;
+    public static void insertInstructor(Statement s){
+        //s.executeUpdate() //Will be an insert statement
+    }
+    
+    //Write query inside function to delete from database
+    public static void deleteInstructor(Statement s){
+        //s.executeUpdate(); //will be a delete statement
+    }
   
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         
@@ -55,11 +75,11 @@ public class Project2{
         System.out.println("Driver loaded");
         
         //Connect to database :: Last is password
-        Connection  con = DriverManager.getConnection("jdbc:mysql://localhost/", "root", "password");
+        Connection  con = DriverManager.getConnection("jdbc:mysql://localhost/", "root", "Dreamer0523##");
         System.out.println("Database connected\n");
         
-        
-        
+        Statement s = con.createStatement();
+        readFilesIntoDB(s);
         
         
         //Get user choice for the menu 
@@ -92,7 +112,7 @@ public class Project2{
                     break;
                 case "3":
                     
-                    
+                    insertInstructor(s);
                     //Calls menu again and make sures the newly entered choice is still a valid choice.
                     menu();
                     choice = userInput.nextLine();
@@ -100,7 +120,7 @@ public class Project2{
                     break;
                 case "4":
                     
-                    
+                    deleteInstructor(s);
                     //Calls menu again and make sures the newly entered choice is still a valid choice.
                     menu();
                     choice = userInput.nextLine();
