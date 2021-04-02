@@ -75,7 +75,7 @@ public class Project2{
         System.out.println("Driver loaded");
         
         //Connect to database :: Last is password
-        Connection  con = DriverManager.getConnection("jdbc:mysql://localhost/", "root", "Dreamer0523##");
+        Connection  con = DriverManager.getConnection("jdbc:mysql://localhost/", "root", "password");
         System.out.println("Database connected\n");
         
         Statement s = con.createStatement();
