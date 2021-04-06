@@ -1,6 +1,4 @@
 # Done
 -Menu has been made an is fully working.
--Prompt 5 is fully working
+-Every prompt should work, check for bugs/errors
 
-# To-Do
--Prompts 1-4.
