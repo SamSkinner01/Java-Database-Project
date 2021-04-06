@@ -83,6 +83,8 @@ public class Project2{
             String line = instructorScanner.next();
             String[] values = line.split(",");
             
+           //System.out.println(values[2]);
+            
             s.executeUpdate("INSERT INTO instructor (id, name, dept_name) VALUES (" + values[0] + ", \"" + values[1] + "\", \"" + values[2].trim() + "\")");
 
         }
@@ -99,7 +101,10 @@ public class Project2{
        
         System.out.println("Please enter an id: ");
         int id = scan.nextInt();
- 
+        while(isValidID(id,s) == false){
+            System.out.println("Please enter an unused id: ");
+            id = scan.nextInt();
+        }
         
         System.out.println("Please enter a name: ");
         String name = scan2.nextLine();
@@ -122,8 +127,26 @@ public class Project2{
         Scanner scan = new Scanner(System.in);
         System.out.println("Please enter an id: ");
         int id = scan.nextInt();
-        s.executeUpdate("Delete from instructor where id = " + id); 
-        System.out.println("Instructor deleted\n");
+        if(checkID(id,s) == true){
+            s.executeUpdate("Delete from instructor where id = " + id); 
+            System.out.println("Instructor deleted\n");
+        }else{
+            System.out.println("ID does not exist.\n");
+        }
+        
+    }
+    
+    //If ID is already used in the database return false, else that ID can be used.
+    public static boolean isValidID(int ID, Statement s) throws SQLException{
+        ResultSet rs = s.executeQuery("Select id from instructor");
+        boolean isValid = true;
+        while(rs.next() && isValid== true){
+            int id = rs.getInt("id");
+            if (ID == id)
+                isValid = false;
+                
+        }
+        return isValid;
     }
     
     //checks if ID exists in DB
